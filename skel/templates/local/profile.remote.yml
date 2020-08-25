@@ -1,0 +1,12 @@
+remote.service.address: 192.168.1.2
+
+spring.cloud:
+  consul:
+    host: ${remote.service.address}
+    discovery.instanceId: local
+  vault:
+    host: ${remote.service.address}
+
+spring.zipkin.base-url: http://${remote.service.address}:9411/
+trace.reporter:
+  url: ${spring.zipkin.base-url}api/v1/spans

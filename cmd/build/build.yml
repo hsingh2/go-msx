@@ -1,0 +1,35 @@
+executable:
+  cmd: app
+  configFiles:
+    - bootstrap.yml
+
+msx:
+  release: 3.9.0
+  platform:
+    parentArtifacts:
+      - com.cisco.vms:vms-service-starter
+      - com.cisco.vms:vms-service-starter-core
+      - com.cisco.vms:vms-service-starter-kafka
+      - com.cisco.nfv:nfv-integration-consul-leader
+    version: 3.9.0-EDGE
+    includeGroups: "com.cisco.**"
+
+generate:
+  - path: skel
+  - path: integration/awsresourceprovider
+  - path: integration/manage
+  - path: integration/oss
+  - path: integration/serviceconfigmanager
+  - path: integration/usermanagement
+  - path: resource
+    vfsgen:
+      filename: "defaults.go"
+      variable-name: "Defaults"
+      root: ".."
+      includes:
+        - "/**/defaults-*.{properties,yml,yaml,json,json5}"
+      excludes:
+        - "/dist/**"
+        - "/test/**"
+        - "/vendor/**"
+        - "/local/**"

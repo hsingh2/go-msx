@@ -1,0 +1,9 @@
+info.build:
+  artifact: someservice
+  buildDateTime: "2020-08-25T19:25:45.547031Z"
+  buildNumber: SNAPSHOT
+  group: com.cisco.msx
+  name: Some Microservice
+  version: 3.9.0-SNAPSHOT
+
+fs.sources: /Users/harvinds/go/src/cto-github.cisco.com/NFV-BU/go-msx
